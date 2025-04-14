@@ -194,6 +194,10 @@ uv add flask-jwt-extended   # for authentication
 uv add pydantic             # for data validation
 uv add python-dotenv        # for environment variables
 uv add taskipy              # for task automation
+
+uv add flask-cors           # for frontend-backend integration
+uv add marshmallow-sqlalchemy # for data validation
+
 ```
 
 ```toml
