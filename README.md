@@ -4,12 +4,6 @@
 
 ---
 
-## 🚀 Project Overview
-
-As a software engineer, your task is to develop the **core backend component** of LocalLink. This module handles everything from user management to product listings, carts, and order processing. The backend is designed to be clean, scalable, and ready for integration with the rest of the group project.
-
----
-
 ## 🎯 Project Scope
 
 ### ✅ Theme/Name
@@ -34,53 +28,61 @@ You can visualize the schema using [dbdiagram.io](https://dbdiagram.io) or any s
 
 #### ⚙️ Schema Overview (ER Diagram Structure)
 
-```plaintext
-Users
------
-id (PK)
-name
-email (UNIQUE)
-password_hash
-role (enum: 'customer', 'vendor', 'admin')
-created_at
-updated_at
+erDiagram
 
-Products
---------
-id (PK)
-name
-description
-price
-stock_quantity
-category
-vendor_id (FK -> Users.id)
-created_at
-updated_at
+Users {
+int id PK
+string name
+string email
+string password_hash
+enum role
+timestamp created_at
+timestamp updated_at
+}
 
-CartItems
----------
-id (PK)
-user_id (FK -> Users.id)
-product_id (FK -> Products.id)
-quantity
-added_at
+Products {
+int id PK
+string name
+text description
+decimal price
+int stock_quantity
+string category
+int vendor_id FK
+timestamp created_at
+timestamp updated_at
+}
 
-Orders
-------
-id (PK)
-user_id (FK -> Users.id)
-total_amount
-status (enum: 'pending', 'paid', 'shipped', 'delivered')
-created_at
+CartItems {
+int id PK
+int user_id FK
+int product_id FK
+int quantity
+timestamp added_at
+}
 
-OrderItems
-----------
-id (PK)
-order_id (FK -> Orders.id)
-product_id (FK -> Products.id)
-quantity
-unit_price
-```
+Orders {
+int id PK
+int user_id FK
+decimal total_amount
+enum status
+timestamp created_at
+}
+
+OrderItems {
+int id PK
+int order_id FK
+int product_id FK
+int quantity
+decimal unit_price
+}
+
+%% Relationships
+Users ||--o{ Products : has
+Users ||--o{ CartItems : has
+Users ||--o{ Orders : places
+Products ||--o{ CartItems : includes
+Products ||--o{ OrderItems : contains
+Orders ||--o{ OrderItems : includes
 
 ---
 
