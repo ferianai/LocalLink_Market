@@ -33,12 +33,37 @@ erDiagram
 
   Users {
     int id PK
-    string name
+    string username
+    string first_name
+    string last_name
     string email
+    string phone
     string password_hash
+    date date_of_birth
+    string address
+    string city
+    string state
+    string country
+    string zip_code
+    string image_url
     enum role
+    string bank_account
+    boolean is_active
     timestamp created_at
     timestamp updated_at
+  }
+
+  Categories {
+    int id PK
+    string name
+    string description
+    int vendor_id FK
+    int parent_id FK
+  }
+
+  ProductCategories {
+    int product_id PK, FK
+    int category_id PK, FK
   }
 
   Products {
@@ -47,15 +72,23 @@ erDiagram
     text description
     decimal price
     int stock_quantity
-    string category
+    string image_url
+    string location
+    boolean featured
     int vendor_id FK
     timestamp created_at
     timestamp updated_at
   }
 
-  CartItems {
+  Cart {
     int id PK
     int user_id FK
+    timestamp created_at
+  }
+
+  CartItems {
+    int id PK
+    int cart_id FK
     int product_id FK
     int quantity
     timestamp added_at
@@ -77,13 +110,33 @@ erDiagram
     decimal unit_price
   }
 
-  %% Relationships
-  Users ||--o{ Products : has
-  Users ||--o{ CartItems : has
+  Feedback {
+    int id PK
+    int user_id FK
+    int product_id FK
+    int rating
+    string comment
+    timestamp created_at
+  }
+
+  %% RELATIONSHIPS
+
+  Users ||--o{ Products : sells
+  Users ||--o{ Categories : owns
+  Users ||--|| Cart : has
+  Cart ||--o{ CartItems : contains
+  Products ||--o{ CartItems : listed_in
   Users ||--o{ Orders : places
-  Products ||--o{ CartItems : includes
-  Products ||--o{ OrderItems : contains
-  Orders ||--o{ OrderItems : includes
+  Orders ||--o{ OrderItems : contains
+  Products ||--o{ OrderItems : included_in
+  Users ||--o{ Feedback : leaves
+  Products ||--o{ Feedback : receives
+
+  Products ||--o{ ProductCategories : categorized_by
+  Categories ||--o{ ProductCategories : includes
+
+  Categories ||--o{ Categories : parent_of
+
 
 ```
 
