@@ -28,61 +28,64 @@ You can visualize the schema using [dbdiagram.io](https://dbdiagram.io) or any s
 
 #### ⚙️ Schema Overview (ER Diagram Structure)
 
+```mermaid
 erDiagram
 
-Users {
-int id PK
-string name
-string email
-string password_hash
-enum role
-timestamp created_at
-timestamp updated_at
-}
+  Users {
+    int id PK
+    string name
+    string email
+    string password_hash
+    enum role
+    timestamp created_at
+    timestamp updated_at
+  }
 
-Products {
-int id PK
-string name
-text description
-decimal price
-int stock_quantity
-string category
-int vendor_id FK
-timestamp created_at
-timestamp updated_at
-}
+  Products {
+    int id PK
+    string name
+    text description
+    decimal price
+    int stock_quantity
+    string category
+    int vendor_id FK
+    timestamp created_at
+    timestamp updated_at
+  }
 
-CartItems {
-int id PK
-int user_id FK
-int product_id FK
-int quantity
-timestamp added_at
-}
+  CartItems {
+    int id PK
+    int user_id FK
+    int product_id FK
+    int quantity
+    timestamp added_at
+  }
 
-Orders {
-int id PK
-int user_id FK
-decimal total_amount
-enum status
-timestamp created_at
-}
+  Orders {
+    int id PK
+    int user_id FK
+    decimal total_amount
+    enum status
+    timestamp created_at
+  }
 
-OrderItems {
-int id PK
-int order_id FK
-int product_id FK
-int quantity
-decimal unit_price
-}
+  OrderItems {
+    int id PK
+    int order_id FK
+    int product_id FK
+    int quantity
+    decimal unit_price
+  }
 
-%% Relationships
-Users ||--o{ Products : has
-Users ||--o{ CartItems : has
-Users ||--o{ Orders : places
-Products ||--o{ CartItems : includes
-Products ||--o{ OrderItems : contains
-Orders ||--o{ OrderItems : includes
+  %% Relationships
+  Users ||--o{ Products : has
+  Users ||--o{ CartItems : has
+  Users ||--o{ Orders : places
+  Products ||--o{ CartItems : includes
+  Products ||--o{ OrderItems : contains
+  Orders ||--o{ OrderItems : includes
+
+```
 
 ---
 
