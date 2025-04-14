@@ -177,7 +177,3 @@ uv run flask db upgrade
 ## 📄 License
 
 MIT — feel free to use, modify, and share!
-
----
-
-Want me to include a sample `.env`, `app.py`, or database model in SQLAlchemy to go with this?
