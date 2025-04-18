@@ -22,7 +22,7 @@ LocalLink supports the following core features:
 - Cart management
 - Order creation and tracking
 
-You can visualize the schema using [dbdiagram.io](https://dbdiagram.io) or any similar tool.
+You can visualize the schema here : [LocalLink ER Diagram](https://dbdiagram.io/d/LocalLink_Market-680274141ca52373f58340a9) or any similar tool.
 
 #### ⚙️ Schema Overview (ER Diagram Structure)
 
