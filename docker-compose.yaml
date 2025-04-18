@@ -4,7 +4,7 @@ services:
     environment:
       - POSTGRES_DB=LocalLink_db
       - POSTGRES_USER=LocalLink_user
-      - POSTGRES_PASSWORD=LocalLink_password123
+      - POSTGRES_PASSWORD=password123
     # volumes:
     #   - ./postgres_db_data:/var/lib/postgresql/data/
     ports:

@@ -4,8 +4,6 @@
 
 ---
 
-## 🎯 Project Scope
-
 ### ✅ Theme/Name
 
 - **Project Name**: `LocalLink`
@@ -48,6 +46,7 @@ erDiagram
     string image_url
     enum role
     string bank_account
+    string bank_name
     boolean is_active
     timestamp created_at
     timestamp updated_at
