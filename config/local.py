@@ -15,3 +15,6 @@ DB_PORT = 5432
 SQLALCHEMY_DATABASE_URI = (
     f"postgresql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 )
+
+# Add SECRET_KEY for Flask and JWT
+SECRET_KEY = "supersecretkey1234567890"

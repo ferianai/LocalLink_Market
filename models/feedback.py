@@ -18,8 +18,8 @@ class Feedback(db.Model):
     created_at: datetime = db.Column(db.DateTime(timezone=True), default=crono.now)
 
     # Relationships
-    user = db.relationship("User", backref="feedback")
-    product = db.relationship("Product", backref="feedback")
+    user = db.relationship("Users", back_populates="feedback")
+    product = db.relationship("Product", back_populates="feedback")
 
     def __repr__(self):
         return (

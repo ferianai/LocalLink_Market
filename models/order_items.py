@@ -21,7 +21,7 @@ class OrderItem(db.Model):
 
     # Relationships
     order = db.relationship("Order", back_populates="order_items")
-    product = db.relationship("Product", backref="order_items")
+    product = db.relationship("Product", back_populates="order_items")
 
     def __repr__(self):
         return f"<OrderItem {self.id} for Order {self.order_id}>"

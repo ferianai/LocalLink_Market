@@ -9,6 +9,7 @@ wheels/
 *.egg-info
 dist/
 build/
+config/local.py
 
 # Virtual environments
 venv/

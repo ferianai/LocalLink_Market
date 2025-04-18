@@ -22,8 +22,8 @@ class Product(db.Model):
 
     # Relationships
     cart_items = db.relationship("CartItem", backref="product", lazy=True)
-    order_items = db.relationship("OrderItem", backref="product", lazy=True)
-    feedback = db.relationship("Feedback", backref="product", lazy=True)
+    order_items = db.relationship("OrderItem", back_populates="product", lazy=True)
+    feedback = db.relationship("Feedback", back_populates="product", lazy=True)
     product_categories = db.relationship(
         "ProductCategory", backref="product", lazy=True
     )

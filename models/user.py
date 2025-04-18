@@ -23,7 +23,7 @@ class Users(db.Model):
     last_name: str = db.Column(db.String(80), nullable=False)
     email: str = db.Column(db.String(120), unique=True, nullable=False)
     phone: str = db.Column(db.String(20), unique=True, nullable=False)
-    password_hash: str = db.Column(db.String(128), nullable=False)
+    password_hash: str = db.Column(db.String(512), nullable=False)
     date_of_birth: str = db.Column(db.String(10), nullable=False)
     address: str = db.Column(db.String(255), nullable=False)
     city: str = db.Column(db.String(80), nullable=False)
@@ -42,8 +42,8 @@ class Users(db.Model):
     products = db.relationship("Product", backref="vendor", lazy=True)
     categories = db.relationship("Category", backref="owner", lazy=True)
     cart = db.relationship("Cart", uselist=False, backref="user")
-    orders = db.relationship("Order", backref="user", lazy=True)
-    feedback = db.relationship("Feedback", backref="user", lazy=True)
+    orders = db.relationship("Order", back_populates="user", lazy=True)
+    feedback = db.relationship("Feedback", back_populates="user", lazy=True)
 
     # repr method for better debugging
     def __repr__(self):

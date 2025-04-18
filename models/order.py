@@ -29,7 +29,7 @@ class Order(db.Model):
     created_at: datetime = db.Column(db.DateTime(timezone=True), default=crono.now)
 
     # Relationships
-    user = db.relationship("User", backref="orders")
+    user = db.relationship("Users", back_populates="orders")
     order_items = db.relationship(
         "OrderItem", back_populates="order", cascade="all, delete-orphan"
     )
