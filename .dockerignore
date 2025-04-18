@@ -15,3 +15,7 @@ build/
 docker-compose.yaml
 README.md
 tests/
+
+# Local configuration files
+config/local.py
+config/remote.py

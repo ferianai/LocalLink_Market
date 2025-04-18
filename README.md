@@ -169,6 +169,83 @@ The backend exposes RESTful APIs for:
 
 ---
 
+## 📦 Structur Folder
+
+```text
+.
+├── alembic.ini
+├── app.py
+├── config
+│   ├── dev.py
+│   ├── __init__.py
+│   ├── local.py
+│   ├── __pycache__
+│   ├── remote.py
+│   ├── settings.py
+│   └── testing.py
+├── conftest.py
+├── docker-compose.yaml
+├── Dockerfile
+├── instance
+│   ├── database.py
+│   ├── __init__.py
+│   └── __pycache__
+├── load_fixture.py
+├── migrations
+│   ├── alembic.ini
+│   ├── env.py
+│   ├── __pycache__
+│   ├── README
+│   ├── script.py.mako
+│   └── versions
+│       ├── 66246590cbbb_initial_migration.py
+│       ├── 78d7d315f080_add_order_orderitem_and_feedback_models.py
+│       ├── aaeabdeba432_merge_heads.py
+│       ├── __pycache__
+│       └── update_password_hash_length.py
+├── models
+│   ├── cart_item.py
+│   ├── cart.py
+│   ├── category.py
+│   ├── feedback.py
+│   ├── fixture
+│   │   ├── __init__.py
+│   │   └── user.sql
+│   ├── __init__.py
+│   ├── order_items.py
+│   ├── order.py
+│   ├── product_category.py
+│   ├── product.py
+│   ├── __pycache__
+│   └── user.py
+├── __pycache__
+├── pyproject.toml
+├── README.md
+├── repo
+│   ├── __init__.py
+│   ├── __pycache__
+│   └── user.py
+├── route
+│   ├── index.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   └── user.py
+├── shared
+│   ├── crono.py
+│   ├── __init__.py
+│   └── __pycache__
+├── tests
+│   ├── __init__.py
+│   ├── __pycache__
+│   └── test_app.py
+├── utils
+│   ├── auth.py
+│   ├── __init__.py
+│   └── __pycache__
+└── uv.lock
+
+```
+
 ## 🧪 Local Development
 
 ### 📦 Python + Flask (with `uv` environment)
