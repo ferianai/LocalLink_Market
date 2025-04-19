@@ -7,6 +7,7 @@ from .cart_item import CartItem
 from .feedback import Feedback
 from .order import Order
 from .order_items import OrderItem
+from .wishlist_item import WishlistItem
 
 __all__ = [
     "Users",
@@ -18,4 +19,5 @@ __all__ = [
     "Feedback",
     "Order",
     "OrderItem",
+    "WishlistItem",
 ]
